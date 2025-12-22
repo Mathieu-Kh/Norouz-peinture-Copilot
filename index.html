@@ -7,6 +7,8 @@
   <meta name="description" content="Norouz Peinture, entreprise de peinture à Angers. Peinture intérieure, rénovation et décoration. Devis gratuit.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" href="assets/img/logo-norouz.png">
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -293,5 +295,36 @@
 <a class="floating-sms" href="sms:+33661557684">SMS</a>
 
 
+
+    <!-- EmailJS Form Handler -->
+    <script>
+          // Initialize EmailJS
+          emailjs.init("zYltG1qzZiGhdwyd");
+
+          // Handle form submission
+          document.querySelector('.contact-form').addEventListener('submit', function(e) {
+                  e.preventDefault();
+
+                  const submitBtn = this.querySelector('button[type="submit"]');
+                  const originalText = submitBtn.textContent;
+                  submitBtn.textContent = 'Envoi en cours...';
+                  submitBtn.disabled = true;
+
+                  emailjs.sendForm('service_d9we2iv', 'zdh7dr8', this).then(
+                            function() {
+                                        alert('Message envoye avec succes!');
+                                        document.querySelector('.contact-form').reset();
+                                        submitBtn.textContent = originalText;
+                                        submitBtn.disabled = false;
+                                      },
+                            function(error) {
+                                        alert('Erreur lors de l\'envoi. Veuillez reessayer.');
+                                        submitBtn.textContent = originalText;
+                                        submitBtn.disabled = false;
+                                      }
+                          );
+                });
+        </script>
 </body>
 </html>
+
