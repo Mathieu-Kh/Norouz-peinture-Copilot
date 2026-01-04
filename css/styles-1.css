@@ -15,11 +15,6 @@ body {
   background: #f7f7f7;
 }
 
-html, body {
-  overflow-x: hidden;
-}
-
-
 /* ------------------------------
    GLOBAL CONTAINERS
 ------------------------------ */
@@ -310,7 +305,30 @@ html, body {
 
 /* ------------------------------
    FLOATING BUTTONS
------------------------------- *
+------------------------------ */
+.floating-whatsapp,
+.floating-call,
+.floating-sms {
+  position: fixed;
+  right: 20px;
+  padding: 0.8rem 1rem;
+  background: #0055ff;
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 999;
+}
+
+.floating-whatsapp { bottom: 120px; }
+.floating-call     { bottom: 70px; }
+.floating-sms      { bottom: 20px; }
+
+.floating-whatsapp:hover,
+.floating-call:hover,
+.floating-sms:hover {
+  background: #003fcc;
+}
 
 /* ------------------------------
    PLACEHOLDER FOR PROJECT IMAGES
@@ -321,84 +339,3 @@ html, body {
   background: #ddd;
   border-radius: 8px;
 }
-.project-photo {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-}
-.floating-btn {
-  position: fixed;
-  right: 20px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 26px;
-  text-decoration: none;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-.floating-btn.whatsapp {
-  bottom: 140px;
-  background-color: #25D366;
-}
-
-.floating-btn.call {
-  bottom: 80px;
-  background-color: #007AFF;
-}
-
-.floating-btn.sms {
-  bottom: 20px;
-  background-color: #FF9500;
-}
-
-.floating-btn:hover {
-  transform: scale(1.1);
-  transition: 0.2s;
-}
-@media (max-width: 768px) {
-  .floating-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
-    right: 15px;
-  }
-
-  .grid,
-  .grid-2,
-  .grid-3,
-  .about-grid,
-  .contact-grid,
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-@media (max-width: 768px) {
-  .main-nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-    padding-left: 0;
-  }
-
-  .main-nav a {
-    font-size: 1rem;
-    display: block;
-  }
-
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-}
-
-
-
